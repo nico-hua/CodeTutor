@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #localVideo, #remoteVideo {
+            width: 480px;  /* 设置宽度 */
+            height: 270px; /* 设置高度 */
+            border: 1px solid black; /* 添加边框以便于查看边界 */
+            margin: 10px; /* 添加一些外边距 */
+        }
+    </style>
+    <title>WebRTC Demo</title>
+</head>
+<body>
+    <h1>WebRTC Demo</h1>
+    <div id="buttons">
+        <input id="roomId" type="text" placeholder="请输入房间ID" maxlength="=40"/>
+        <button id="joinBtn" type="button">加入</button>
+        <button id="leaveBtn" type="button">离开</button>
+        <button id="shareScreenBtn">共享屏幕</button>
+    </div>
+    <div id="videos">
+        <video id="localVideo" autoplay muted playsinline>本地窗口</video>
+        <video id="remoteVideo" autoplay playsinline>远端窗口</video>
+    </div>
+    <script src="js/main.js"></script>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+</body>
+</html>

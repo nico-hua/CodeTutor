@@ -1,0 +1,51 @@
+.graph {
+  position: relative;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  .buttons {
+    display: flex;
+    position: absolute;
+    top: -36px;
+    right: 0;
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+
+    path {
+      fill: none;
+      stroke: #005583;
+      stroke-width: 1px;
+      pointer-events: none;
+    }
+
+    text {
+      font-size: 20px;
+      fill: #005583;
+      pointer-events: all;
+      cursor: pointer;
+
+      &.readonly {
+        cursor: default;
+      }
+
+      &.invisible {
+        visibility: hidden;
+      }
+    }
+
+    #arrow path {
+      fill: #005583;
+    }
+  }
+
+  .weight-editor {
+    width: 100px;
+    position: absolute;
+    transform: translate3d(-50%, -50%, 0);
+  
+    --mdc-filled-text-field-container-color: transparent;
+  }
+}

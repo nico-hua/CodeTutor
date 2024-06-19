@@ -1,0 +1,97 @@
+.debugger {
+  --border-image-source: linear-gradient(to right, #4d9bff, #3b7eff, #285bff); 
+  
+  &-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    --room-control-height: 200px;
+    --room-control-button-height: 20px;
+
+    &.room {
+      --room-control-height: 0px;
+    }
+
+    .room-control {
+      .button-container {
+        display: flex;
+        justify-content: center;
+        height: var(--room-control-button-height);
+      }
+    }
+  }
+
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  height: calc(100% - var(--room-control-height) - var(--room-control-button-height));
+    
+  &-left {
+    width: 480px;
+    height: 100%;
+    overflow: auto;
+  }
+
+  &-right {
+    flex: 1;
+    margin-left: 20px;
+    height: 100%;
+    overflow: auto;
+    border-image-source: var(--border-image-source);
+    border-image-slice: 1;
+    border-left: 2px solid;
+    border-top: 2px solid;
+
+    app-runtime-view {
+      display: block;
+      min-height: 100%;
+    }
+  }
+}
+
+.url-fetch {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.url-fetch input[type="text"] {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.url-fetch button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  background-color: #007bff;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.url-fetch button:hover {
+  background-color: #0056b3;
+}
+
+.toggle-button {
+  padding: 5px 10px;
+  font-size: 10px;
+  background-color: #007bff; /* 绿色背景 */
+  color: white; /* 白色文本 */
+  border: none; /* 无边框 */
+  border-radius: 5px; /* 圆角 */
+  cursor: pointer; /* 鼠标指针 */
+  transition: background-color 0.3s ease; /* 背景颜色过渡 */
+}
+
+.toggle-button:hover {
+  background-color: #0056b3; /* 悬停时的背景颜色 */
+}
+

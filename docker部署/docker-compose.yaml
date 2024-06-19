@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-server
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456a
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+
+  pythontutor:
+    image: docker.m.daocloud.io/nico817/codetutor_codetrace_service:v3
+    container_name: pythontutor
+    ports:
+      - "9000:9000"
+    restart: always
+    depends_on:
+      - mysql
+
+  backend:
+    image: registry.cn-hangzhou.aliyuncs.com/nico817/codetutor_backend:v1
+    container_name: codetutor_backend
+    ports:
+      - "8080:8080"
+    environment:
+      TZ: Asia/Shanghai
+    restart: always
+    depends_on:
+      - mysql
+      - pythontutor
+
+  frontend:
+    image: registry.cn-hangzhou.aliyuncs.com/nico817/codetutor_frontend:v7
+    container_name: codetutor_frontend
+    ports:
+      - "80:80"
+    restart: always
+
+volumes:
+  mysql_data:

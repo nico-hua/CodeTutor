@@ -1,0 +1,13 @@
+.algorithm {
+  min-width: 200px;
+  min-height: 100px;
+
+  .title {
+    padding: 16px;
+  }
+
+  .content {
+    display: flex;
+    flex-direction: column;
+  }
+}

@@ -1,0 +1,10 @@
+<div class="literal">
+  <strong>{{ literal.id }}</strong>
+  <app-cell
+    #ref
+    [item]="literal.value"
+    [addible]="false"
+    [removable]="false"
+    [readonly]="readonly"
+  ></app-cell>
+</div>

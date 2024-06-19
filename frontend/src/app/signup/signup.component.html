@@ -1,0 +1,21 @@
+<div class="signup-container">
+    <h2>注册</h2>
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="username">用户名</label>
+        <input id="username" formControlName="username">
+      </div>
+      <div>
+        <label for="password">密码</label>
+        <input id="password" type="password" formControlName="password">
+      </div>
+      <div>
+        <label for="confirmPassword">确认密码</label>
+        <input id="confirmPassword" type="password" formControlName="confirmPassword">
+      </div>
+      <div class="error-message" *ngIf="signupForm?.hasError('passwordMismatch') && signupForm.get('confirmPassword')?.touched">
+        密码和确认密码不一致
+      </div>
+      <button type="submit" [disabled]="signupForm.invalid">注册</button>
+    </form>
+</div>  

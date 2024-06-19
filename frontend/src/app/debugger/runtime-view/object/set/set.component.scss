@@ -1,0 +1,15 @@
+.set {
+  display: flex;
+  border-radius: 100%;
+  border: 1px solid #555555;
+  padding: 20px;
+  box-sizing: border-box;
+
+  .value {
+    min-width: 30px;
+    min-height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

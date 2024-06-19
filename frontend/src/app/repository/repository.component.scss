@@ -1,0 +1,17 @@
+.repository {
+  display: flex;
+  height: 100%;
+
+  .left {
+    flex-basis: 200px;
+    flex-shrink: 0;
+    height: 100%;
+  }
+
+  .right {
+    overflow: auto;
+    margin-left: 20px;
+    border: 2px solid #005583;
+    background-color: rgba(230, 238, 255, 0.8);
+  }
+}

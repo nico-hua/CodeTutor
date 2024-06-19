@@ -1,0 +1,27 @@
+<div class="dfs">
+  <app-graph
+    #ref1
+    *ngIf="graph"
+    [animate]="true"
+    [readonly]="true"
+    [disabled]="isDisabled.bind(this)"
+    [value]="graph!"
+    [layout]="layout"
+    [autolayout]="!layout"
+    (layout)="onLayout($event)"
+  ></app-graph>
+  <app-tree
+    #ref1
+    *ngIf="tree"
+    [animate]="true"
+    [readonly]="true"
+    [value]="tree!"
+  ></app-tree>
+  <app-array
+    #ref3
+    *ngIf="result"
+    [value]="result"
+    [animate]="true"
+    [readonly]="true"
+  ></app-array>
+</div>

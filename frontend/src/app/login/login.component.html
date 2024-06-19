@@ -1,0 +1,15 @@
+<div class="login-container">
+    <h2>登录</h2>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div>
+        <label for="username">用户名</label>
+        <input id="username" formControlName="username">
+      </div>
+      <div>
+        <label for="password">密码</label>
+        <input id="password" type="password" formControlName="password">
+      </div>
+      <button type="submit" [disabled]="loginForm.invalid">登录</button>
+    </form>
+</div>
+  

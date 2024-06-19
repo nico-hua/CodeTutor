@@ -1,0 +1,20 @@
+.stack-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  &-name {
+    width: 100px;
+  }
+  &-value {
+    flex: 1;
+    display: flex;
+    justify-self: center;
+    border: 1px solid black;
+  }
+  &-slot {
+    flex: 1;
+    height: 20px;
+    border-left: 1px solid black;
+    border-bottom: 1px solid black;
+  }
+}

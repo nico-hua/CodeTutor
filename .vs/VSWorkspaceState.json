@@ -1,0 +1,17 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\frontend",
+    "\\frontend\\src",
+    "\\frontend\\src\\app",
+    "\\frontend\\src\\app\\repository",
+    "\\frontend\\src\\app\\repository\\data-structure",
+    "\\frontend\\src\\app\\repository\\data-structure\\array",
+    "\\frontend\\src\\app\\repository\\data-structure\\queue",
+    "\\frontend\\src\\app\\repository\\data-structure\\stack",
+    "\\frontend\\src\\object",
+    "\\frontend\\src\\object\\data-structure"
+  ],
+  "SelectedNode": "\\frontend\\src\\app\\repository\\data-structure\\array\\array.component.html",
+  "PreviewInSolutionExplorer": false
+}

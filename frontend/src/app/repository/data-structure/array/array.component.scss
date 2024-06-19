@@ -1,0 +1,11 @@
+.array {
+  display: flex;
+  position: relative;
+
+  .buttons {
+    display: flex;
+    position: absolute;
+    top: -36px;
+    right: 0;
+  }
+}

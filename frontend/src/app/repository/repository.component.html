@@ -1,0 +1,33 @@
+<div class="repository">
+  <div class="left">
+    <app-canvas-panel 
+      #panel
+      [items]="items"
+      [itemGroupInfos]="itemGroupInfos"
+      (dragstart)="onDragStart($event)"
+      (dragend)="onDragEnd($event)"></app-canvas-panel>
+  </div>
+
+  <div class="right">
+    <app-canvas
+      #canvas
+      [minWidth]="1080"
+      [minHeight]="640"
+      [draggable]="true"
+      [zIndex]="0"
+      [objects]="objects"
+      [layout]="layout"
+      [autolayout]="false"
+      (dragenter)="onDragEnterCanvas($event)"
+      (dragleave)="onDragLeaveCanvas($event)"
+      (dragover)="onDragOverCanvas($event)"
+      (itemDragStart)="onDragItemStart($event)"
+      (itemDragStart)="onDragItemEnd($event)"
+      (itemDragEnter)="onDragEnterObject($event)"
+      (itemDragLeave)="onDragLeaveObject($event)"
+      (itemDrop)="onDropOnObject($event)"
+      (drop)="onDropOnCanvas($event)"
+      (add)="onAdd($event)"
+      (remove)="onRemove($event)"></app-canvas>
+  </div>
+</div>

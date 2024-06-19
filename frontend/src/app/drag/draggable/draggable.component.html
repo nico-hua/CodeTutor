@@ -1,0 +1,11 @@
+<div 
+  #containerRef
+  class="draggable"
+  [ngStyle]="{ 'z-index': zIndex }"
+  (dragstart)="onDragStart($event)"
+  (dragend)="onDragEnd($event)"
+  (dragenter)="onDragEnter($event)"
+  (dragleave)="onDragLeave($event)"
+  (drop)="onDrop($event)">
+  <ng-content></ng-content>
+</div>

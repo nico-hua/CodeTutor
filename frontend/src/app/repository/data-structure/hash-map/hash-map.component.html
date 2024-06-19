@@ -1,0 +1,66 @@
+<div #containerRef class="hash-map">
+  <div *ngIf="showOptions" class="options">
+    <ng-container *ngIf="!readonly">
+      <mat-form-field class="key">
+        <mat-label>Key</mat-label>
+        <input matInput [(ngModel)]="curKey" />
+      </mat-form-field>
+      <mat-form-field class="value">
+        <mat-label>Value</mat-label>
+        <input matInput [(ngModel)]="curValue" />
+      </mat-form-field>
+    </ng-container>
+    <div class="buttons">
+      <button *ngIf="!readonly" mat-mini-fab color="primary" (click)="onAdd()">
+        <mat-icon>check</mat-icon>
+      </button>
+      <button *ngIf="mode === 'physical'" mat-mini-fab color="primary" (click)="onAutoLayout()">
+        <mat-icon>refresh</mat-icon>
+      </button>
+      <button mat-mini-fab color="primary" (click)="onToggleMode()">
+        <mat-icon>sync</mat-icon>
+      </button>
+    </div>
+  </div>
+  <div class="slots">
+    <div class="slots-physical" *ngIf="mode !== 'logical'">
+      <div class="slot" *ngFor="let slot of map.slots; let index = index">
+        <app-cell
+          [item]="slot"
+          [height]="getHeight(index)"
+          [readonly]="true"
+        ></app-cell>
+        <app-link-list
+          [value]="slot.value"
+          [readonly]="readonly"
+          [linkable]="false"
+          [addible]="false"
+          [showOptions]="false"
+          [animate]="animate"
+          (resize)="onResize(index, $event)"
+        ></app-link-list>
+      </div>
+    </div>
+    <div class="slots-logical" [ngClass]="mode" *ngIf="mode !== 'physical'">
+      <div
+        class="slot"
+        *ngFor="let key of map.keys();"
+      >
+        <div class="options">
+          <button class="del" *ngIf="!readonly" mat-mini-fab color="primary" (click)="onDel(key)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </div>
+        <strong>{{ key }}</strong>
+        <app-cell
+          [item]="map.get(key)"
+          [readonly]="readonly"
+          [addible]="false"
+          [removable]="false"
+          (edit)="onEdit(key)"
+          (save)="onSave(key, $event)"
+        ></app-cell>
+      </div>
+    </div>
+  </div>
+</div>

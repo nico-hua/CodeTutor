@@ -1,0 +1,10 @@
+.value {
+  display: flex;
+
+  app-drag-icon {
+    display: flex;
+    width: 30px;
+    justify-content: center;
+    align-items: center;
+  }
+}

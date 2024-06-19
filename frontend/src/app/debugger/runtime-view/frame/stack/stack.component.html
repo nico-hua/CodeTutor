@@ -1,0 +1,8 @@
+<div class="stack">
+  <div class="item" *ngFor="let obj of objects">
+    <strong>{{ obj.id }}</strong>
+    <app-cell 
+      [item]="obj.value"
+      [readonly]="true"></app-cell>
+  </div>
+</div>

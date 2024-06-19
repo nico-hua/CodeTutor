@@ -1,0 +1,18 @@
+<div #containerRef class="instance">
+  <mat-card class="key-value" *ngFor="let keyValue of instance.value">
+    <mat-card-title>{{ keyValue[0].value }}</mat-card-title>
+    <mat-card-content>
+      <ng-container *ngIf="keyValue[1].type === 'LITERAL'; else refBlock">
+        <app-literal [literal]="getLiteral(keyValue[1])"></app-literal>
+      </ng-container>
+      <ng-template #refBlock>
+        <ng-container *ngIf="keyValue[1].type === 'REF'; else defaultBlock">
+          <app-ref [ref]="getRef(keyValue[1])"></app-ref>
+        </ng-container>
+      </ng-template>
+      <ng-template #defaultBlock>
+        <app-variable [variable]="keyValue[1]"></app-variable>
+      </ng-template>
+    </mat-card-content>
+  </mat-card>
+</div>

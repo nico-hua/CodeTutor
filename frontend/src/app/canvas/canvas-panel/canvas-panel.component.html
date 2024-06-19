@@ -1,0 +1,20 @@
+<mat-card *ngFor="let groupInfo of itemGroupInfos; let card = index;">
+  <mat-card-title>{{ groupInfo.name }}</mat-card-title>
+  <mat-card-content [ngStyle]="toStyle(getCardSize(groupInfo.id, card))">
+    <app-draggable 
+      [draggable]="true" 
+      [zIndex]="1"
+      [trigger]="'drop'"
+      (dragstart)="onDragStart($event, groupInfo.id)"
+      (dragend)="onDragEnd($event, groupInfo.id)">
+      <app-draggable-item 
+        *ngFor="let item of items[groupInfo.id]; let i = index;"
+        [initialPosition]="getPosition(item, card, i)" 
+        [key]="item.id">
+        <div class="item" [ngStyle]="toStyle(getItemSize(item, card, i))">
+          {{ item.name }}
+        </div>
+      </app-draggable-item>
+    </app-draggable>
+  </mat-card-content>
+</mat-card>

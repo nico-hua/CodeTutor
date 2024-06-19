@@ -1,0 +1,69 @@
+.cell {
+  position: relative;
+  border: 1px solid #005583;
+
+  &.disabled {
+    background: lightgray; 
+    cursor: not-allowed;
+  }
+
+  .value, .cur-value {
+    height: 100%;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cur-value {
+    visibility: hidden;
+  }
+
+  .ref {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .out {
+      cursor: pointer;
+      border-radius: 100%;
+      width: 10px;
+      height: 10px;
+      background-color: #005583;
+    }
+  }
+
+  mat-form-field {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    ::ng-deep .mat-mdc-text-field-wrapper {
+      padding: 0;
+      background-color: transparent;
+    }
+
+    ::ng-deep input {
+      display: block;
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-size: 20px;  
+      width: 100%;
+    }
+  }
+
+  &.chart {
+    width: 100%;
+    background: linear-gradient(to bottom, #309eff, #003366);
+  }
+
+  .remove, .add {
+    position: absolute;
+  }
+}

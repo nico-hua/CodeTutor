@@ -1,0 +1,14 @@
+<div class="input-container">
+  <div id="editor"></div>
+  
+  <div class="input-container-goto">
+    <button mat-flat-button color="primary" type="button" [disabled]="disabled" (click)="onPrev()">Prev</button>
+    <mat-slider [class.disabled]="disabled" discrete showTickMarks [min]="minStep + 1" [max]="maxStep + 1" step="1" [displayWith]="stepLabel">
+      <input matSliderThumb [value]="curStep + 1" (valueChange)="onGoto($event)">
+    </mat-slider>
+    <button mat-flat-button color="primary" type="button" [disabled]="disabled" (click)="onNext()">Next</button>
+  </div>
+  
+  <button class="submit" mat-flat-button color="primary" type="button" (click)="onSubmit()">Submit</button>
+  <button mat-flat-button color="primary" type="button" (click)="goToHistory()" class="submit">history</button>
+</div>

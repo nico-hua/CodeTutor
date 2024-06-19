@@ -1,0 +1,35 @@
+<div #container class="runtime-view">
+  <div class="runtime-view-frames" [ngStyle]="{ minWidth: size.width + 'px' }">
+    <h1 *ngIf="frames.length === 0">Frame</h1>
+    <app-frame #frameRef [frames]="frames"></app-frame>
+  </div>
+  <div class="runtime-view-heap" [ngStyle]="{ minWidth: size.width + 'px', minHeight: size.height + 'px'  }" (dblclick)="onDblClick($event)">
+    <h1 *ngIf="objects.length === 0">Heap</h1>
+    <app-heap 
+      #heapRef 
+      [variables]="objects" 
+      [draggable]="true"
+      (layout)="onLayout($event)"/>
+    <div *ngIf="showDraft" class="mask"></div>
+    <app-heap 
+      *ngIf="showDraft" 
+      class="draft" 
+      #draftRef 
+      [variables]="objects"
+      [draggable]="true"
+      (resize)="onResize($event)"/>
+    <div *ngIf="showDraft" class="panel" [ngClass]="{ show: showPanel }">
+      <app-canvas-panel
+        [items]="panelItems"
+        [itemGroupInfos]="panelItemGroupInfos"
+        (dragstart)="canvasHandler?.onDragStart($event)"
+        (dragend)="canvasHandler?.onDragEnd($event)"></app-canvas-panel>
+      <div class="panel-switch" (click)="onTogglePanel()">
+        {{ showPanel ? '-' : '+' }}
+      </div>
+    </div>
+  </div>
+  <svg [ngStyle]="{ width: svgSize.width, height: svgSize.height }">
+    <path *ngFor="let path of refPaths" [attr.d]="calcPath(path)"></path>
+  </svg>
+</div>

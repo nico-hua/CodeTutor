@@ -1,0 +1,12 @@
+<div class="merge">
+  <div 
+    class="array" 
+    *ngFor="let array of arrays"
+    [ngStyle]="style(array)">
+    <app-array
+      [value]="array" 
+      [readonly]="true"
+      [animate]="true"
+      (change)="onChange($event)"></app-array>
+  </div>
+</div>

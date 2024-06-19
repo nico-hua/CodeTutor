@@ -1,0 +1,23 @@
+.stack {
+  display: flex;
+
+  .item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    strong {
+      padding: 0 20px;
+    }
+
+    app-cell {
+      display: block;
+      width: 100%;
+
+      ::ng-deep .cell {
+        width: 100%;
+      }
+    }
+  }
+}

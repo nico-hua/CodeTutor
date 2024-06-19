@@ -1,0 +1,56 @@
+.input-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+
+  #editor {
+    margin-top: 20px;
+    width: 100%;
+    height: 400px;
+  }
+
+  textarea {
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+
+  &-lines {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+
+    .line {
+      &.current {
+        background-color: #f5f5f5;
+      }
+    }
+  }
+  &-goto {
+    display: flex;
+    margin-top: 20px;
+    mat-slider {
+      flex: 1;
+
+      &.disabled {
+        opacity: 0.38;
+      
+        &, ::ng-deep .mdc-slider__input {
+          pointer-events: none;
+          cursor: not-allowed;
+        }
+
+        ::ng-deep .mdc-slider__thumb-knob {
+          background-color: black;
+          border-color: black;
+        }
+      }
+    }
+  }
+
+  .submit {
+    margin-top: 20px;
+  }
+}

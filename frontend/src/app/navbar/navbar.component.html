@@ -1,0 +1,16 @@
+<mat-toolbar color="primary">
+    <span class="title">{{ title }}</span>
+    <div class="spacer"></div>
+    <ng-container *ngFor="let button of buttons">
+      <a mat-button (click)="onClick(button)">{{ button.label }}</a>
+    </ng-container>
+    <a mat-button (click)="onClick(recorder)" *ngIf="isLogged">{{ recorder.label }}</a>
+    <div class="right" *ngIf="!isLogged">
+      <a mat-button (click)="onClick(signup)">{{ signup.label }}</a>
+      <a mat-button (click)="onClick(login)">{{ login.label }}</a>
+    </div>
+    <div class="right" *ngIf="isLogged">
+      <span>你好，{{ username }}</span>
+      <a mat-button (click)="logout()" class="logout-button">退出</a>
+    </div>
+</mat-toolbar>

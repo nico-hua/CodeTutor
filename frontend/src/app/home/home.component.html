@@ -1,0 +1,18 @@
+<div *ngIf="showPageOne" class="page">
+  <app-page-one></app-page-one>
+</div>
+<div *ngIf="!showPageOne" class="page">
+  <app-page-two></app-page-two>
+</div>
+<div class="center">
+  <div class="convert">
+    <button #buttonOne (click)="togglePageOne()"  (mouseenter)="pauseAutoSwitch()" (mouseleave)="resumeAutoSwitch()">新手入门</button>
+    <button #buttonTwo (click)="togglePageTwo()"  (mouseenter)="pauseAutoSwitch()" (mouseleave)="resumeAutoSwitch()">代码可视化</button>
+  </div>
+</div>
+<div class="footer clearfix">
+  <div class="wrapper">
+      <p>CodeTutor致力于为用户提供一流的编程学习服务体验。<br>
+          © 2024年FDU ss.保留所有权利。-沪ICP备24000001号</p>
+  </div>
+</div>

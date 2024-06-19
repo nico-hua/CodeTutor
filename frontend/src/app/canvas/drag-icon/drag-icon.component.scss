@@ -1,0 +1,49 @@
+.drag-icon {
+  display: inline-block;
+  width: 12px;
+  height: 18px;
+  position: relative;
+
+  &::before, &::after, 
+  & .top::before, & .top::after,
+  & .bottom::before, & .bottom::after {
+    content: "";
+    display: block;
+    width: 4px;
+    height: 4px;
+    border-radius: 100%;
+    background-color: black;
+    position: absolute;
+  }
+
+  &::before {
+    top: 7px;
+    left: 0px;
+  }
+
+  &::after {
+    top: 7px;
+    right: 0px;
+  }
+
+  & .top {
+    &::before {
+      top: 0px;
+      left: 0px;
+    }
+    &::after {
+      top: 0px;
+      right: 0px;
+    }
+  }
+  & .bottom {
+    &::before {
+      bottom: 0px;
+      left: 0px;
+    }
+    &::after {
+      bottom: 0px;
+      right: 0px;
+    }
+  }
+}

@@ -1,0 +1,185 @@
+.video-call {
+  display: flex;
+  align-items: flex-start;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: relative;
+  height: var(--room-control-height);
+  padding: 5px 0;
+  box-sizing: border-box;
+  transition: height 0.3s; /* Smooth transition for height change */
+}
+
+.video-call.expanded {
+  height: 540px; /* Increase height to accommodate the chat box */
+}
+
+.controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  margin-left: 50px;
+}
+
+.room-input {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  width: 200px;
+  font-size: 16px;
+  height: 20px;
+}
+
+.control-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  margin-bottom: 5px;
+  width: 200px;
+  height: 30px;
+  display: flex; /* 使用 flex 布局 */
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+}
+
+.control-button:last-child {
+  margin-bottom: 0;
+}
+
+.control-button:hover {
+  background-color: #0056b3;
+}
+
+.chat-box {
+  width: 500px;
+  height: 500px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 50px; /* Adjust top position to align below the control buttons */
+  left: 300px; /* Adjust left position to place it between controls and video */
+  display: flex;
+  flex-direction: column; /* Enable column flex layout */
+  overflow: hidden; /* Hide overflowing content */
+  z-index: 1000; /* Ensure chat box is above other elements */
+}
+
+.message-list-container {
+  height: 450px; /* Set fixed height */
+  overflow-y: auto; /* Enable vertical scrollbar */
+  z-index: 1001; /* Ensure message list container is above other elements */
+}
+
+.message-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0; /* Reset margin to avoid unintended spacing */
+}
+
+.message-list li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #f0f0f0; /* 背景色 */
+  border-radius: 8px; /* 圆角 */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* 阴影 */
+  transition: background-color 0.3s; /* 平滑过渡 */
+}
+
+.message-list li:last-child {
+  margin-bottom: 0;
+}
+
+.message-list li:hover {
+  background-color: #e0e0e0; /* 鼠标悬停时的背景色 */
+}
+
+
+.input-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Align items evenly */
+  padding-top: 5px; /* Add space between message list and input area */
+  padding-bottom: 5px; /* Add space between input area and bottom edge */
+}
+
+.message-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.send-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.send-button:hover {
+  background-color: #0056b3;
+}
+
+.remoteVideo {
+  position: absolute;
+  top: 25px;
+  right: 270px;
+  width: 200px;
+  height: 150px;
+  background-color: black;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  z-index: 900;
+}
+
+.remote-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.localVideo {
+  position: absolute;
+  top: 25px;
+  right: 50px;
+  width: 200px;
+  height: 150px;
+  background-color: black;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.local-video-element {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.resize-handle {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  bottom: 0;
+  left: 0;
+  background: #fff;
+  border: 1px solid #000;
+  cursor: nwse-resize;
+  z-index: 20;
+}

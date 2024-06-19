@@ -1,0 +1,31 @@
+<div class="array">
+  <app-cell
+    *ngFor="let item of array; let i = index"
+    [item]="item"
+    [readonly]="readonly"
+    [addible]="showAdd(i)"
+    [style]="style(i)"
+    [mode]="mode"
+    [height]="mode === 'chart' ? 200 : 50"
+    [context]="array"
+    (edit)="onEdit(i)"
+    (add)="onAdd(i)"
+    (remove)="onRemove(i)"
+    (save)="onSave($event, i)"
+    ></app-cell>
+  <!-- 空时显示 -->
+  <app-cell
+    *ngIf="showAdd(-1)"
+    [disabled]="true"
+    [editable]="false"
+    [readonly]="readonly"
+    [removable]="false"
+    (add)="onAdd(-1)"
+    >
+  </app-cell>
+  <div *ngIf="showOptions" class="buttons">
+    <button mat-mini-fab color="primary" (click)="onToggleMode()">
+      <mat-icon>sync</mat-icon>
+    </button>
+  </div>
+</div>

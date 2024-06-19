@@ -1,0 +1,67 @@
+<mat-card class="algorithm">
+  <mat-card-title class="title">
+    <ng-container *ngIf="value.type === 'alg-function'; else defaultTitle">
+      <strong style="color: darkblue">def</strong> {{ value.name }}()
+    </ng-container>
+    <ng-template #defaultTitle>{{ value.name }}</ng-template>
+  </mat-card-title>
+  <mat-card-content class="content">
+    <ng-container *ngIf="value.type === 'alg-bubble-sort'; else insertSortBlock">
+      <app-bubble #objectRef [value]="bubble"></app-bubble>
+    </ng-container>
+    <ng-template #insertSortBlock>
+      <ng-container *ngIf="value.type === 'alg-insert-sort'; else selectSortBlock">
+        <app-insert #objectRef [value]="insert"></app-insert>
+      </ng-container>
+    </ng-template>
+    <ng-template #selectSortBlock>
+      <ng-container *ngIf="value.type === 'alg-select-sort'; else mergeSortBlock">
+        <app-select #objectRef [value]="select"></app-select>
+      </ng-container>
+    </ng-template>
+    <ng-template #mergeSortBlock>
+      <ng-container *ngIf="value.type === 'alg-merge-sort'; else quickSortBlock">
+        <app-merge #objectRef [value]="merge"></app-merge>
+      </ng-container>
+    </ng-template>
+    <ng-template #quickSortBlock>
+      <ng-container *ngIf="value.type === 'alg-quick-sort'; else heapSortBlock">
+        <app-quick #objectRef [value]="quick"></app-quick>
+      </ng-container>
+    </ng-template>
+    <ng-template #heapSortBlock>
+      <ng-container *ngIf="value.type === 'alg-heap-sort'; else buildHeapBlock">
+        <app-heap-sort #objectRef [value]="heap"></app-heap-sort>
+      </ng-container>
+    </ng-template>
+    <ng-template #buildHeapBlock>
+      <ng-container *ngIf="value.type === 'alg-build-heap'; else dfsBlock">
+        <app-build-heap #objectRef [value]="buildHeap"></app-build-heap>
+      </ng-container>
+    </ng-template>
+    <ng-template #dfsBlock>
+      <ng-container *ngIf="value.type === 'alg-dfs'; else dijkstraBlock">
+        <app-dfs #objectRef [value]="dfs"></app-dfs>
+      </ng-container>
+    </ng-template>
+    <ng-template #dijkstraBlock>
+      <ng-container *ngIf="value.type === 'alg-dijkstra'; else funcBlock">
+        <app-dijkstra #objectRef [value]="dijkstra"></app-dijkstra>
+      </ng-container>
+    </ng-template>
+    <ng-template #funcBlock>
+      <ng-container *ngIf="value.type === 'alg-function'; else defaultBlock">
+        
+      </ng-container>
+    </ng-template>
+    <ng-template #defaultBlock>
+      <h1>Not Implemented: {{ value.type }}</h1>
+    </ng-template>
+    <app-algorithm-base
+      [readonly]="readonly"
+      [algorithm]="bubble"
+      (step)="onStep($event)"
+      (submit)="onSubmit($event)"
+    ></app-algorithm-base>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,7 @@
+<div class="stack-item">
+  <header class="stack-item-name">{{ item.name }}</header>
+  <div *ngIf="item.type === 'LITERAL'" class="stack-item-value">
+    {{ item.value }}
+  </div>
+  <div *ngIf="item.type === 'REF'" #itemRef class="stack-item-slot"></div>
+</div>

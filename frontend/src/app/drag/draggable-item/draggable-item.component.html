@@ -1,0 +1,10 @@
+<div 
+  #containerRef
+  class="draggable-item"
+  [ngClass]="{ draggable: draggable, dragging: dragging }"
+  [ngStyle]="style"
+  (dragstart)="onDragStart($event)" 
+  (dragend)="onDragEnd($event)"
+  (drop)="onDrop($event)">
+  <ng-content></ng-content>
+</div>

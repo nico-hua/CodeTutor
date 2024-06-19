@@ -1,0 +1,58 @@
+.frame {
+
+  &-tree {
+    mat-nested-tree-node, mat-tree-node {
+      display: block;
+      position: relative;
+    }
+
+    mat-nested-tree-node {
+
+      &.odd {
+        background: white;
+      }
+
+      &.even {
+        background: var(--frames-background-color);;
+      }
+
+      div[role=group] {
+        padding-left: 40px;
+      }
+    }
+
+    mat-tree-node {
+
+      &.current {
+        background: rgb(171, 253, 120);
+
+        h1 {
+          color: green;
+        }
+      }
+    }
+
+    ul, li {
+      margin-top: 0;
+      margin-bottom: 0;
+      list-style-type: none;
+    }
+
+    h1 {
+      position: absolute;
+      font-weight: bold;
+      font-size: 30px;
+      color: #4d9bff;
+      opacity: 0.5;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    div[role=group] {
+      & > .mat-tree-node {
+        padding-left: 40px;
+      }
+    }
+  } 
+}

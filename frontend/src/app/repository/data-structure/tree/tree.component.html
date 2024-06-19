@@ -1,0 +1,37 @@
+<app-graph
+  #graphRef
+  [value]="tree.graph"
+  [readonly]="readonly"
+  [disabled]="isDisabled"
+  [linkable]="linkable"
+  [addible]="false"
+  [removable]="isRemovable.bind(this)"
+  [showOptions]="showOptions"
+  [nodeStyle]="getNodeStyle.bind(this)"
+  [displayId]="getDisplayId.bind(this)"
+  [maxIndeg]="getMaxIndeg"
+  [maxOutdeg]="getMaxOutdeg"
+  [animate]="animate"
+  [layoutSorter]="treelayoutSorter"
+  (resize)="onResize($event)"
+  (add)="onAdd()"
+  (remove)="onRemove($event)"
+  (addAfterNode)="onAddAfterNode($event)"
+>
+  <mat-slider
+    *ngIf="!readonly"
+    slot="options"
+    showTickMarks
+    min="2"
+    max="5"
+    step="1"
+    discrete
+    [displayWith]="branchDisplay"
+  >
+    <input
+      matSliderThumb
+      [value]="branch"
+      (valueChange)="onUpdateBranch($event)"
+    />
+  </mat-slider>
+</app-graph>

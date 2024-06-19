@@ -1,0 +1,15 @@
+<app-graph
+  #graphRef
+  [value]="list.graph"
+  [readonly]="readonly"
+  [disabled]="isDisabled"
+  [linkable]="linkable"
+  [addible]="false"
+  [showOptions]="showOptions"
+  [maxIndeg]="getMaxIndeg"
+  [maxOutdeg]="getMaxOutdeg"
+  [animate]="animate"
+  (add)="onAdd()"
+  (remove)="onRemove($event)"
+  (addAfterNode)="onAddAfterNode($event)"
+  (resize)="onResize($event)"></app-graph>

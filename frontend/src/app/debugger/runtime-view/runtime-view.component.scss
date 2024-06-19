@@ -1,0 +1,115 @@
+.runtime-view {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  --frames-background-color: #cee3ff;
+
+  h1 {
+    position: absolute;
+    font-size: 30px;
+    font-weight: bold;
+    color: #4d9bff;
+    opacity: 0.3;
+  }
+
+  &-frames {
+    min-height: 50px;
+    padding: 20px;
+    border-bottom: 2px solid;
+    border-image-source: var(--border-image-source);
+    border-image-slice: 1;
+    background: var(--frames-background-color);
+
+    header {
+      text-align: center;
+    }
+  }
+  &-heap {
+    flex: 1;
+    position: relative;
+    padding: 20px;
+    margin-top: -2px;
+    border-image-source: var(--border-image-source);
+    border-image-slice: 1;
+    
+    app-heap {
+      position: relative;
+      &.draft {
+        position: absolute;
+        left: 20px;
+        top: 20px;
+        z-index: 2;
+        .container {
+          position: absolute;
+        }
+      }
+    }
+
+    .panel {
+      display: flex;
+      position: absolute;
+      top: 0;
+      left: 20px;
+      z-index: 100;
+      transition: all 0.3s ease;
+      align-items: center;
+
+      &-switch {
+        cursor: pointer;
+        width: 20px;
+        height: 50px;
+        line-height: 50px;
+        font-size: 30px;
+        text-align: left;
+        border-radius: 0 50% 50% 0;
+        background-color: #4d9bff;
+        color: white;
+      }
+
+      transform: translateX(-100%);
+    
+      &.show {
+        transform: translateX(-20px);
+      }
+    }
+
+    .mask {
+      box-sizing: border-box;
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+      border: 2px solid;
+      border-image-source: var(--border-image-source);
+      border-image-slice: 1;
+      background-color:  rgba(230, 238, 255, 0.8);
+      filter: blur(10px) saturate(180%) contrast(1.2); 
+      overflow: hidden;
+    }
+  }
+
+  svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 1000px;
+    height: 1000px;
+
+    * {
+      pointer-events: none;
+    }
+
+    path {
+      fill: none;
+      stroke: #005583;
+      stroke-width: 1px;
+    }
+  }
+}

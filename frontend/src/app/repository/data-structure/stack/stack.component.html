@@ -1,0 +1,21 @@
+<div class="stack">
+  <app-cell *ngFor="let item of stack; let i = index"
+            [item]="item"
+            [readonly]="readonly"
+            [addible]="showAdd(i)"
+            [editable]="isEditable(i)"
+            [removable]="isRemovable(i)"
+            [style]="style(i)"
+            (edit)="onEdit(i)"
+            (add)="onAdd()"
+            (remove)="onRemove(i)"
+            (save)="onSave($event, i)"></app-cell>
+  <!-- 空时显示 -->
+  <app-cell *ngIf="showAdd(-1)"
+            [editable]="false"
+            [readonly]="readonly"
+            [removable]="false"
+            [style]="{ background: 'lightgray', cursor: 'not-allowed' }"
+            (add)="onAdd()">
+  </app-cell>
+</div>

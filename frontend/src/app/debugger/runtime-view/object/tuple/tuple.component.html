@@ -1,0 +1,15 @@
+<div #containerRef class="tuple">
+  <div class="value" *ngFor="let value of tuple.value">
+    <ng-container *ngIf="value.type === 'LITERAL'; else refBlock">
+      <app-literal [literal]="getLiteral(value)"></app-literal>
+    </ng-container>
+    <ng-template #refBlock>
+      <ng-container *ngIf="value.type === 'REF'; else defaultBlock">
+        <app-ref [ref]="getRef(value)"></app-ref>
+      </ng-container>
+    </ng-template>
+    <ng-template #defaultBlock>
+      <app-variable [variable]="value"></app-variable>
+    </ng-template>
+  </div>
+</div>

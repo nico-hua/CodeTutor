@@ -1,0 +1,55 @@
+.page{
+  height: 80%;
+}
+
+.center {
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  align-items: center; /* 垂直居中 */
+  height: 50px; /* 设置父容器高度为视窗高度 */
+  // background-color: pink;
+}
+
+.convert {
+  display: flex;
+  justify-content: space-between; /* 按钮间距相等 */
+  align-items: center;
+  width: 370px; /* 两个按钮加上间隙的总宽度 */
+  height: 40px;
+  border-radius: 20px;
+  //border: 1px solid #2980b9;
+  background-color: rgb(234, 231, 231);
+}
+
+.convert button {
+  width: 180px;
+  height: 40px;
+  border-radius: 20px;
+  font-size: 18px;
+  background-color: rgb(234, 231, 231);
+  border: none;
+}
+
+.convert button:first-child {
+  background-color: cornflowerblue; /* 设置第一个按钮的背景颜色为红色 */
+}
+
+
+.convert button:hover{
+  background-color: rgb(152, 150, 150) !important;
+}
+
+.footer{
+  position: fixed;
+  left:0;
+  bottom: 0;
+  width:100%;
+  height:55px;
+  background-color: cornflowerblue;
+}
+
+.footer .wrapper p{
+  text-align: center;
+  padding-top: 10px;
+  font-size: 14px;
+}

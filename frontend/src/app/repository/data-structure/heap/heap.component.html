@@ -1,0 +1,53 @@
+<div #containerRef class="heap">
+  <div class="buttons">
+    <ng-container *ngIf="!readonly">
+      <mat-form-field>
+        <input matInput [(ngModel)]="curValue" />
+      </mat-form-field>
+      <button
+        mat-mini-fab
+        color="primary"
+        [disabled]="!heap || !curValue"
+        (click)="onPush()"
+      >
+        <mat-icon>plus_one</mat-icon>
+      </button>
+      <button
+        mat-mini-fab
+        color="primary"
+        [disabled]="!heap || heap.length === 0"
+        (click)="onPop()"
+      >
+        <mat-icon>remove</mat-icon>
+      </button>
+    </ng-container>
+    <button mat-mini-fab color="primary" (click)="onToggleMode()">
+      <mat-icon>sync</mat-icon>
+    </button>
+    <ng-content select="[slot='options']"> </ng-content>
+  </div>
+  <div
+    class="view"
+    [ngClass]="mode"
+    [ngStyle]="{ width: size.width + 'px', minHeight: size.height + 'px' }"
+  >
+    <app-array
+      #arrayRef
+      *ngIf="mode !== 'logical'"
+      class="physical"
+      [value]="heap.data"
+      [readonly]="true"
+      [animate]="true"
+    ></app-array>
+    <app-tree
+      #treeRef
+      *ngIf="mode !== 'physical'"
+      class="logical"
+      [value]="heap.tree"
+      [displayId]="getDisplayId.bind(this)"
+      [readonly]="true"
+      [showOptions]="false"
+      (resize)="onResize($event)"
+    ></app-tree>
+  </div>
+</div>

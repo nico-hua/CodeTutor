@@ -1,0 +1,36 @@
+<div class="debugger-container" [ngClass]="{ 'room': !isRoomControlVisible }">
+  <!-- 加入和离开房间 -->
+  <div class="room-control">
+    <app-room-control (join)="onJoinRoom($event)" *ngIf="isRoomControlVisible"></app-room-control>
+    <div class="button-container">
+      <button (click)="toggleRoomControl()" class="toggle-button">
+        {{ isRoomControlVisible ? '收起' : '展开' }} 
+      </button>
+    </div>
+  </div>
+  <div class="debugger">
+    <div class="debugger-left">
+      <div class="url-fetch">
+        <input type="text" [(ngModel)]="url" placeholder="请输入代码URL" />
+        <button (click)="fetchData(url)">提交</button>
+      </div>
+      <app-code-editor
+        [code]="code"
+        [curLine]="curLine"
+        [curStep]="curStep"
+        [minStep]="minStep"
+        [maxStep]="maxStep"
+        (submit)="onSubmit($event)"
+        (goto)="onGoto($event)"
+      ></app-code-editor>
+    </div>
+    <div class="debugger-right">
+      <app-runtime-view
+        [frames]="frames"
+        [objects]="objects"
+      ></app-runtime-view>
+    </div>
+  </div>
+</div>
+
+

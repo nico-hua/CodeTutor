@@ -1,0 +1,72 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.header {
+  padding: 10px;
+  background-color: #f5f5f5;
+  border-bottom: 1px solid #ddd;
+}
+
+.filter{
+  float: right;
+  margin-right: 20px;
+}
+
+.main-content {
+  flex: 1;
+  overflow: hidden; /* 防止内容溢出容器 */
+}
+
+.history {
+  height: 90%;
+  padding: 20px;
+  margin-bottom: 10px;
+}
+
+.table-container {
+  max-height: calc(100% - 20px); /* 减去底部距离，确保总高度不超过父容器 */
+  margin-bottom: 20px; /* 设置底部距离 */
+  overflow-y: auto; /* 允许垂直滚动 */
+  border: 1px solid #ddd;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+thead th {
+  position: sticky;
+  top: 0;
+  background-color: white; /* 需要设置背景颜色来覆盖内容 */
+  z-index: 1; /* 确保表头在最上层 */
+}
+
+pre {
+  margin: 0;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+button {
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

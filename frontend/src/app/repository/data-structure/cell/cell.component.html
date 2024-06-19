@@ -1,0 +1,52 @@
+<div
+  class="cell" 
+  [ngClass]="ngClass"
+  (mouseenter)="onMouseEnter($event)"
+  (mouseleave)="onMouseLeave($event)"
+  (click)="onClick($event)"
+  [ngStyle]="cellStyle">
+  <ng-container *ngIf="mode === 'normal' else chartBlock">
+    <ng-container *ngIf="isRef; else literalBlock">
+      <div class="ref">
+        <div #outRef class="out" (click)="onClickRef($event)"></div>
+      </div>
+    </ng-container>
+    <ng-template #literalBlock>
+      <div *ngIf="!showEdit" class="value">{{ item }}</div>
+      <div *ngIf="showEdit" class="cur-value">{{ curValue }}</div>
+      <mat-form-field *ngIf="showEdit">
+        <input matInput 
+          (click)="onClickInput($event)" 
+          (keydown)="onKeydown($event)"
+          [(ngModel)]="curValue" 
+          [ngStyle]="inputStyle">
+        <button *ngIf="showClear" matSuffix mat-icon-button aria-label="Clear" (click)="onClear($event)">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </ng-template>
+  </ng-container>
+  <ng-template #chartBlock>
+    
+  </ng-template>
+  
+  
+  <button 
+    *ngIf="showRemove" 
+    mat-mini-fab 
+    color="warn" 
+    class="remove"
+    [ngStyle]="removeStyle"
+    (click)="onRemove($event)">
+    <mat-icon>delete</mat-icon>
+  </button>
+  <button 
+    *ngIf="showAdd" 
+    mat-mini-fab 
+    color="primary" 
+    class="add"
+    [ngStyle]="addStyle"
+    (click)="onAdd($event)">
+    <mat-icon>plus_one</mat-icon>
+  </button>
+</div>

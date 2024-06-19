@@ -1,0 +1,45 @@
+<div class="algorithm-base">
+  <button
+    mat-mini-fab
+    color="primary"
+    type="button"
+    [disabled]="disabled"
+    (click)="onPrev()"
+  >
+    <mat-icon>chevron_left</mat-icon>
+  </button>
+  <mat-slider
+    discrete
+    showTickMarks
+    min="1"
+    [max]="states.length"
+    step="1"
+    [displayWith]="stepLabel"
+  >
+    <input
+      matSliderThumb
+      [value]="curStep + 1"
+      (valueChange)="onStepTo($event)"
+    />
+  </mat-slider>
+  <button
+    mat-mini-fab
+    color="primary"
+    type="button"
+    [disabled]="disabled"
+    (click)="onNext()"
+  >
+    <mat-icon>chevron_right</mat-icon>
+  </button>
+  <div class="buttons">
+    <button
+      mat-mini-fab
+      color="primary"
+      [disabled]="disabled"
+      (click)="onSubmit($event)"
+    >
+      <mat-icon *ngIf="!readonly">check</mat-icon>
+      <mat-icon *ngIf="readonly">content_copy</mat-icon>
+    </button>
+  </div>
+</div>

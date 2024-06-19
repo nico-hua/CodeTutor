@@ -1,0 +1,17 @@
+.algorithm-base {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  ::ng-deep mat-slider {
+    display: block;
+    flex: 1;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+  }
+}

@@ -1,0 +1,17 @@
+.dijkstra {
+  strong {
+    color: dodgerblue;
+  }
+
+  .current {
+    background-color: lightcyan;
+  }
+
+  app-graph {
+    display: block;
+
+    ::ng-deep .graph {
+      background: transparent;
+    }
+  }
+}

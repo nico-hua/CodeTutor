@@ -1,0 +1,20 @@
+<app-canvas
+  #canvas
+  [draggable]="draggable"
+  [autolayout]="autolayout"
+  [objects]="objects"
+  [layout]="layout"
+  (layout)="onLayout($event)"
+  (resize)="onResize($event)"
+  (dragenter)="canvasHandler?.onDragEnterCanvas($event)"
+  (dragleave)="canvasHandler?.onDragLeaveCanvas($event)"
+  (dragover)="canvasHandler?.onDragOverCanvas($event)"
+  (itemDragStart)="canvasHandler?.onDragItemStart($event)"
+  (itemDragEnd)="canvasHandler?.onDragItemEnd($event)"
+  (itemDragEnter)="canvasHandler?.onDragEnterObject($event)"
+  (itemDragLeave)="canvasHandler?.onDragLeaveObject($event)"
+  (itemDrop)="canvasHandler?.onDropOnObject($event)"
+  (drop)="canvasHandler?.onDropOnCanvas($event)"
+  (add)="canvasHandler?.onAdd($event)"
+  (remove)="canvasHandler?.onRemove($event)"
+  ></app-canvas>

@@ -1,0 +1,51 @@
+<div #container 
+  class="container" 
+  [ngClass]="{ selecting: isSelecting }"
+  [ngStyle]="{'width': width + 'px', 'height': height + 'px' }">
+  <app-draggable 
+    #draggableRef
+    [draggable]="!readonly && draggable"
+    [dragSelector]="'.drag-icon'"
+    [zIndex]="zIndex"
+    (resize)="onResize($event)"
+    (dragover)="onDragOver($event)"
+    (dragstart)="onDragItemStart($event)"
+    (dragend)="onDragItemEnd($event)"
+    (itemDragover)="onDragItemOver($event)"
+    (itemDragEnter)="onDragItemEnter($event)"
+    (itemDragIn)="onDragItemIn($event)"
+    (itemDragOut)="onDragItemOut($event)"
+    (itemDragLeave)="onDragItemLeave($event)"
+    (itemDrop)="onDropItem($event)"
+    (dragenter)="onDragEnter($event)"
+    (dragleave)="onDragLeave($event)"
+    (drop)="onDrop($event)">
+    <app-draggable-item 
+      *ngFor="let object of objects; let index;" 
+      [key]="object.id"
+      [initialPosition]="getInitPosition(object.id)">
+      <app-canvas-object 
+        [ngStyle]="getItemStyle(object.id)" 
+        [object]="object"
+        [readonly]="readonly"
+        (click)="onClick($event, object.id)"></app-canvas-object>
+    </app-draggable-item>
+  </app-draggable>
+  
+  <svg [ngStyle]="{'width': width, 'height': height }">
+    <defs>
+      <!-- 用作箭头的 marker -->
+      <marker
+        id="arrow"
+        viewBox="0 0 10 10"
+        refX="5"
+        refY="5"
+        markerWidth="10"
+        markerHeight="10"
+        orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" />
+      </marker>
+    </defs>
+    <path *ngFor="let path of paths" [attr.d]="path" marker-end="url(#arrow)"/>
+  </svg>
+</div>

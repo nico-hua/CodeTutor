@@ -1,0 +1,11 @@
+<div class="quick">
+  <div 
+    class="array" 
+    *ngFor="let array of arrays"
+    [ngStyle]="style(array)">
+    <app-array
+      [value]="array" 
+      [readonly]="true"
+      [animate]="true"></app-array>
+  </div>
+</div>

@@ -1,0 +1,83 @@
+<div class="data-structure" #contanierRef>
+  <ng-container *ngIf="value.type === 'ds-literal'; else refBlock">
+    <app-literal
+      #objectRef
+      [value]="literal"
+      [readonly]="readonly"
+    ></app-literal>
+  </ng-container>
+  <ng-template #refBlock>
+    <ng-container *ngIf="value.type === 'ds-ref'; else arrayBlock">
+      <app-ref #objectRef [value]="ref" [readonly]="readonly"></app-ref>
+    </ng-container>
+  </ng-template>
+  <ng-template #arrayBlock>
+    <ng-container *ngIf="value.type === 'ds-array'; else stackBlock">
+      <app-array #objectRef [value]="array" [readonly]="readonly"></app-array>
+    </ng-container>
+
+    <ng-template #stackBlock>
+      <ng-container *ngIf="value.type === 'ds-stack'; else queueBlock">
+        <app-stack #objectRef [value]="stack" [readonly]="readonly"></app-stack>
+      </ng-container>
+    </ng-template>
+    <ng-template #queueBlock>
+      <ng-container *ngIf="value.type === 'ds-queue'; else nodeBlock">
+        <app-queue #objectRef [value]="queue" [readonly]="readonly"></app-queue>
+      </ng-container>
+    </ng-template>
+  </ng-template>
+
+  <ng-template #nodeBlock>
+    <ng-container *ngIf="value.type === 'ds-node'; else graphBlock">
+      <app-graph-node
+        #objectRef
+        [value]="node"
+        [readonly]="readonly"
+      ></app-graph-node>
+    </ng-container>
+  </ng-template>
+  <ng-template #graphBlock>
+    <ng-container *ngIf="value.type === 'ds-graph'; else listBlock">
+      <app-graph
+        #objectRef
+        [value]="graph"
+        [readonly]="readonly"
+        (add)="onAddGraphNode()"
+        (addAfterNode)="onAddGraphNodeAfter($event)"
+        (remove)="onRemoceGraphNode($event)"
+      ></app-graph>
+    </ng-container>
+  </ng-template>
+  <ng-template #listBlock>
+    <ng-container *ngIf="value.type === 'ds-linklist'; else treeBlock">
+      <app-link-list
+        #objectRef
+        [value]="linklist"
+        [readonly]="readonly"
+      ></app-link-list>
+    </ng-container>
+  </ng-template>
+  <ng-template #treeBlock>
+    <ng-container *ngIf="value.type === 'ds-tree'; else heapBlock">
+      <app-tree #objectRef [value]="tree" [readonly]="readonly"></app-tree>
+    </ng-container>
+  </ng-template>
+  <ng-template #heapBlock>
+    <ng-container *ngIf="value.type === 'ds-heap'; else hashmapBlock">
+      <app-heap #objectRef [value]="heap" [readonly]="readonly"></app-heap>
+    </ng-container>
+  </ng-template>
+  <ng-template #hashmapBlock>
+    <ng-container *ngIf="value.type === 'ds-hashmap'; else defaultBlock">
+      <app-hash-map
+        #objectRef
+        [value]="hashmap"
+        [readonly]="readonly"
+      ></app-hash-map>
+    </ng-container>
+  </ng-template>
+  <ng-template #defaultBlock>
+    <h1>Not Implemented: {{ value.type }}</h1>
+  </ng-template>
+</div>

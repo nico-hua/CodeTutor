@@ -1,0 +1,30 @@
+.mat-toolbar {
+    background-color: cornflowerblue;
+    color: white;
+}
+
+.title {
+    font-family: 'Pacifico', cursive; /* 使用炫酷的自定义字体 */
+    font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.mat-button {
+    color: white;
+}
+
+.spacer {
+    margin-right: 20px;
+    /* 或者使用 padding: 0 10px; */
+}
+
+.right {
+    margin-left: auto;
+}
+
+.logout-button {
+    &:hover {
+        color: red; /* 鼠标悬停时将字体颜色更改为红色 */
+    }
+}
+

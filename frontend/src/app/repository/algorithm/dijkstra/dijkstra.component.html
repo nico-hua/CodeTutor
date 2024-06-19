@@ -1,0 +1,27 @@
+<div class="dijkstra">
+  <app-graph
+  #graphRef
+  *ngIf="graph"
+    [ngClass]="{ current: isCurrent(graph) }"
+    [value]="graph"
+    [readonly]="true"
+    [animate]="true"
+    [nodeStyle]="getNodeStyle.bind(this)"
+  ></app-graph>
+
+  <div *ngIf="pq" class="pq" [ngClass]="{ current: isCurrent(pq) }">
+    <strong>Priority Queue</strong>
+    <app-heap #pqRef [value]="pq" [readonly]="true" [animate]="true"></app-heap>
+  </div>
+
+  <div *ngIf="distMap" class="dist">
+    <strong>Dist</strong>
+    <app-hash-map
+      #mapRef
+      *ngIf="distMap"
+      [value]="distMap"
+      [readonly]="true"
+      [animate]="true"
+    ></app-hash-map>
+  </div>
+</div>

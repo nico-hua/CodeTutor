@@ -1,0 +1,10 @@
+<main class="main-content">
+  <div *ngIf="codeRecord" class="code-details-container">
+    <h2 class="title">代码详情</h2>
+    <div class="details">
+      <p><strong>代码URL:</strong> {{ codeRecord.url }}</p>
+      <p><strong>提交时间:</strong> {{ codeRecord.submittedAt }}</p>
+    </div>
+    <pre class="code-block">{{ codeRecord.code }}</pre>
+  </div>
+</main>

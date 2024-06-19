@@ -1,0 +1,11 @@
+.ref {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  .value {
+    border-radius: 100%;
+    width: 5px;
+    height: 5px;
+    background-color: #005583;
+  }
+}

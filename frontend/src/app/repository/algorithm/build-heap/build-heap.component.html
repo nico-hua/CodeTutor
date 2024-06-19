@@ -1,0 +1,25 @@
+<div class="build-heap">
+  <app-array
+    #arrayRef
+    *ngIf="array"
+    [value]="array"
+    [readonly]="true"
+  ></app-array>
+
+  <app-tree
+    #treeRef
+    *ngIf="tree"
+    [value]="tree"
+    [readonly]="true"
+    [animate]="true"
+    [displayId]="getDisplayId.bind(this)"
+  ></app-tree>
+
+  <app-heap
+    #heapRef
+    *ngIf="heap"
+    [value]="heap"
+    [readonly]="true"
+    [animate]="true"
+  ></app-heap>
+</div>

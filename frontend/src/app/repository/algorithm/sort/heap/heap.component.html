@@ -1,0 +1,24 @@
+<div class="heap-sort">
+  <app-array
+    #arrayRef
+    *ngIf="array"
+    [value]="array"
+    [readonly]="true"
+  ></app-array>
+
+  <app-heap
+    #heapRef
+    *ngIf="heap"
+    [value]="heap"
+    [readonly]="true"
+    [animate]="true"
+  ></app-heap>
+
+  <app-array
+    #retRef
+    *ngIf="ret"
+    [value]="ret"
+    [readonly]="true"
+    [animate]="true"
+  ></app-array>
+</div>

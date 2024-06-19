@@ -1,0 +1,32 @@
+<div class="video-call">
+  <div class="controls">
+    <input [(ngModel)]="enterId" class="room-input" placeholder="请输入房间号">
+    <button (click)="joinRoom()" class="control-button">加入</button>
+    <button (click)="leaveRoom()" class="control-button">离开</button>
+    <button (click)="toggleChatBox()" class="control-button">聊天</button>
+    <button (click)="shareScreen()" class="control-button">共享屏幕</button>
+  </div>
+
+  <div class="chat-box" *ngIf="isChatBoxVisible">
+    <!-- Chat messages list -->
+    <div class="message-list-container">
+      <ul class="message-list">
+        <li *ngFor="let message of messages">{{ message }}</li>
+      </ul>
+    </div>
+    <!-- Input area and send button -->
+    <div class="input-area">
+      <input [(ngModel)]="newMessage" class="message-input" placeholder="请输入消息">
+      <button (click)="send()" class="send-button">发送</button>
+    </div>
+  </div>
+
+  <div class="remoteVideo" #remoteVideoContainer>
+    <video #remoteVideo autoplay playsinline class="remote-video-element"></video>
+    <div class="resize-handle" #resizeHandle></div>
+  </div>
+
+  <div class="localVideo">
+    <video #localVideo autoplay playsinline muted class="local-video-element"></video>
+  </div>
+</div>

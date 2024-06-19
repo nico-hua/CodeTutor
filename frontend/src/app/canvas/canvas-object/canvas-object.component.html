@@ -1,0 +1,14 @@
+<div #containerRef class="value">
+  <app-drag-icon></app-drag-icon>
+  <ng-container *ngIf="isDataStructure; else algBlock">
+    <app-data-structure #objectRef [value]="value" [readonly]="readonly"></app-data-structure>
+  </ng-container>
+  <ng-template #algBlock>
+    <ng-container *ngIf="isAlgorithm; else defaultBlock">
+      <app-algorithm #objectRef [value]="value" [readonly]="readonly"></app-algorithm>
+    </ng-container>
+  </ng-template>
+  <ng-template #defaultBlock>
+    <h1>Unknown object: {{ object.type }}</h1>
+  </ng-template>
+</div>

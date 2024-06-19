@@ -1,0 +1,24 @@
+app-draggable-item {
+  display: flex;
+  flex-direction: column;
+  .id {
+    align-self: self-start
+  }
+
+  .node {
+    display: flex;
+    align-items: center;
+  
+    .in, .out {
+      cursor: pointer;
+      width: 10px;
+      height: 10px;
+      border-radius: 100%;
+      background-color: dodgerblue;
+
+      &.disabled {
+        cursor: not-allowed;
+      }
+    }
+  }
+}

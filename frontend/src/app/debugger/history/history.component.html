@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="header">
+    <div class="filter">
+      <label for="filter">筛选记录:</label>
+      <select id="filter" #filterSelect (change)="onFilterChange($event)">
+        <option value="all">全部</option>
+        <option value="week">近七天</option>
+        <option value="month">近一个月</option>
+      </select>
+    </div>
+    
+  </div>
+
+  <div class="main-content">
+    <div class="history">
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>代码URL</th>
+              <th>代码内容</th>
+              <th>提交时间</th>
+              <th>操作</th> 
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let record of filteredRecords">
+              <td>{{ record.url }}</td>
+              <td>
+                <pre>{{ record.code.split('\n').slice(0, 2).join('\n') }}</pre>
+              </td>
+              <td>{{ record.submittedAt }}</td>
+              <td>
+                <button (click)="viewCodeDetail(record.id)">查看详情</button>
+                <button (click)="deleteRecord(record.id, filterSelect)">删除</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

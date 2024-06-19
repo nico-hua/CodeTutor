@@ -1,0 +1,29 @@
+<app-draggable-item
+  #itemRef
+  [key]="node.id"
+  [initialPosition]="initialPosition">
+  <div #container>
+    <strong class="drag-icon">{{ displayId }}</strong>
+    <div class="node">
+      <div class="in" 
+        #in
+        [ngClass]="{ disabled: removePredDisabled }"
+        (mousedown)="onInMouseDown($event)"></div>
+      <app-cell
+        #cellRef
+        [item]="node.value"
+        [style]="style"
+        [readonly]="readonly"
+        [disabled]="disabled"
+        [addible]="addible"
+        [removable]="removable"
+        (remove)="onRemove()"
+        (add)="onAdd(node)"
+        (save)="onSave($event)"></app-cell>
+      <div class="out"
+        #out
+        [ngClass]="{ disabled: addSuccDisabled }"
+        (mousedown)="onOutMouseDown($event)"></div>
+    </div>
+  </div>
+</app-draggable-item>
